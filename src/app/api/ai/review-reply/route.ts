@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { authenticate } from '@/lib/tier-server';
 import { checkAndRecordUsage } from '@/lib/usage-tracker';
 import { defaultLimiter, getIp, rateLimitResponse } from '@/lib/rateLimit';
@@ -23,7 +23,6 @@ const SYSTEM_PROMPT = `당신은 한국 병원의 온라인 마케팅 전문가�
 [톤 & 매너]
 - "안녕하세요"로 시작
 - 존댓말 유지, 공식적이되 따뜻함
-- 지나치게 딱딱하거나 법률 문서처럼 쓰지 말 것
 
 답변은 한국어로만 작성하고, 마크다운 없이 순수 텍스트로 출력하세요.`;
 
@@ -58,7 +57,11 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+  const model = genAI.getGenerativeModel({
+    model: 'gemini-1.5-flash',
+    systemInstruction: SYSTEM_PROMPT,
+  });
 
   const userMessage = `병원 유형: ${hospitalType}
 환자 리뷰:
@@ -67,20 +70,15 @@ ${reviewText.trim()}
 ---
 위 리뷰에 대한 전문적이고 따뜻한 병원 공식 답변을 작성해주세요.`;
 
-  const stream = await client.messages.stream({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 400,
-    system: SYSTEM_PROMPT,
-    messages: [{ role: 'user', content: userMessage }],
-  });
-
   const readable = new ReadableStream({
     async start(controller) {
       try {
-        for await (const chunk of stream) {
-          if (chunk.type === 'content_block_delta' && chunk.delta.type === 'text_delta') {
+        const result = await model.generateContentStream(userMessage);
+        for await (const chunk of result.stream) {
+          const text = chunk.text();
+          if (text) {
             controller.enqueue(
-              new TextEncoder().encode(`data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`)
+              new TextEncoder().encode(`data: ${JSON.stringify({ text })}\n\n`)
             );
           }
         }
@@ -100,7 +98,6 @@ ${reviewText.trim()}
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
       'Connection': 'keep-alive',
-      'X-Usage-Remaining': String(usage.limit - usage.used),
     },
   });
 }

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { authenticate } from '@/lib/tier-server';
 import { checkAndRecordUsage } from '@/lib/usage-tracker';
 import { defaultLimiter, getIp, rateLimitResponse } from '@/lib/rateLimit';
@@ -70,7 +70,11 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+  const model = genAI.getGenerativeModel({
+    model: 'gemini-1.5-flash',
+    systemInstruction: SYSTEM_PROMPT,
+  });
 
   const userMessage = `진료과: ${specialty}
 콘텐츠 유형: ${CONTENT_TYPE_LABELS[contentType] || contentType}
@@ -79,16 +83,10 @@ export async function POST(request: NextRequest) {
 위 조건에 맞는 마케팅 콘텐츠 3가지 변형을 작성해주세요.`;
 
   try {
-    const message = await client.messages.create({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 800,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: userMessage }],
-    });
+    const result = await model.generateContent(userMessage);
+    const rawText = result.response.text();
 
-    const rawText = message.content[0].type === 'text' ? message.content[0].text : '';
-
-    // Parse [변형 N] blocks
+    // [변형 N] 블록 파싱
     const variations: string[] = [];
     const blocks = rawText.split(/\[변형\s*\d+\]/);
     for (const block of blocks) {
@@ -96,7 +94,6 @@ export async function POST(request: NextRequest) {
       if (trimmed) variations.push(trimmed);
     }
 
-    // Fallback: split by double newline if parsing fails
     if (variations.length < 2) {
       const fallback = rawText.split(/\n\n+/).filter(s => s.trim().length > 20);
       return NextResponse.json({ variations: fallback.slice(0, 3) });

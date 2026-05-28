@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { authenticate } from '@/lib/tier-server';
 import { checkAndRecordUsage } from '@/lib/usage-tracker';
 import { defaultLimiter, getIp, rateLimitResponse } from '@/lib/rateLimit';
@@ -22,7 +22,6 @@ const SYSTEM_PROMPT = `당신은 한국 병원의 환자 소통 전문가입니�
 Q: (질문 그대로 적기)
 A: (답변)
 
-병원명을 자연스럽게 1~2회 언급해도 됩니다.
 마크다운 없이 순수 텍스트로 출력하세요.`;
 
 export async function POST(request: NextRequest) {
@@ -40,7 +39,7 @@ export async function POST(request: NextRequest) {
   }
 
   const { hospitalName, specialty, questions } = body;
-  if (!questions?.length || questions.length < 1) {
+  if (!questions?.length) {
     return NextResponse.json({ error: '질문을 최소 1개 이상 입력해주세요.' }, { status: 400 });
   }
 
@@ -56,7 +55,11 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+  const model = genAI.getGenerativeModel({
+    model: 'gemini-1.5-flash',
+    systemInstruction: SYSTEM_PROMPT,
+  });
 
   const userMessage = `병원명: ${hospitalName || '저희 병원'}
 진료과: ${specialty || '일반'}
@@ -66,16 +69,10 @@ ${questions.map((q, i) => `${i + 1}. ${q}`).join('\n')}
 위 각 질문에 대한 전문적이고 친절한 FAQ 답변을 작성해주세요.`;
 
   try {
-    const message = await client.messages.create({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 2000,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: userMessage }],
-    });
+    const result = await model.generateContent(userMessage);
+    const rawText = result.response.text();
 
-    const rawText = message.content[0].type === 'text' ? message.content[0].text : '';
-
-    // Parse Q: A: pairs
+    // Q: A: 파싱
     const faqItems: { q: string; a: string }[] = [];
     const lines = rawText.split('\n');
     let currentQ = '';
@@ -84,9 +81,7 @@ ${questions.map((q, i) => `${i + 1}. ${q}`).join('\n')}
     for (const line of lines) {
       const trimmed = line.trim();
       if (trimmed.startsWith('Q:')) {
-        if (currentQ && currentA) {
-          faqItems.push({ q: currentQ.trim(), a: currentA.trim() });
-        }
+        if (currentQ && currentA) faqItems.push({ q: currentQ.trim(), a: currentA.trim() });
         currentQ = trimmed.slice(2).trim();
         currentA = '';
       } else if (trimmed.startsWith('A:')) {
@@ -95,9 +90,7 @@ ${questions.map((q, i) => `${i + 1}. ${q}`).join('\n')}
         currentA += ' ' + trimmed;
       }
     }
-    if (currentQ && currentA) {
-      faqItems.push({ q: currentQ.trim(), a: currentA.trim() });
-    }
+    if (currentQ && currentA) faqItems.push({ q: currentQ.trim(), a: currentA.trim() });
 
     return NextResponse.json({ faqItems, rawText });
   } catch (err) {
