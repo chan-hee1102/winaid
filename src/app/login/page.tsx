@@ -129,44 +129,6 @@ function LoginForm() {
             </button>
           </form>
 
-          <div className="flex items-center gap-3 my-6">
-            <div className="flex-1 h-px bg-slate-200" />
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">또는</span>
-            <div className="flex-1 h-px bg-slate-200" />
-          </div>
-
-          <div className="flex flex-col gap-2.5">
-            <button
-              type="button"
-              onClick={() => handleOAuth('google')}
-              disabled={loading || oauthLoading !== null}
-              className="w-full py-3 bg-white border border-slate-200 text-sm font-bold text-slate-700 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
-            >
-              {oauthLoading === 'google' ? (
-                <div className="w-4 h-4 border-2 border-slate-300 border-t-slate-600 rounded-full animate-spin" />
-              ) : (
-                <>
-                  <GoogleIcon /> Google로 로그인
-                </>
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleOAuth('kakao')}
-              disabled={loading || oauthLoading !== null}
-              className="w-full py-3 bg-[#FEE500] text-sm font-bold text-[#191919] rounded-xl hover:bg-[#f5dc00] transition-all disabled:opacity-50 flex items-center justify-center gap-3"
-            >
-              {oauthLoading === 'kakao' ? (
-                <div className="w-4 h-4 border-2 border-[#191919]/30 border-t-[#191919] rounded-full animate-spin" />
-              ) : (
-                <>
-                  <KakaoIcon /> 카카오로 로그인
-                </>
-              )}
-            </button>
-          </div>
-
           <p className="text-center text-xs text-slate-400 mt-6">
             계정이 없으신가요?{' '}
             <Link href="/signup" className="font-bold text-indigo-600 hover:text-indigo-700">
