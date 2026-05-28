@@ -47,7 +47,7 @@ export default function ReviewReplyPage() {
       <div className="mb-8">
         <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">AI 리뷰 답변 생성기</h1>
         <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">
-          환자 리뷰를 붙여넣으면 Claude AI가 의료광고법 준수 병원 공식 답변을 생성합니다.
+          환자 리뷰를 붙여넣으면 AI가 의료광고법 준수 병원 공식 답변을 생성합니다.
         </p>
       </div>
 

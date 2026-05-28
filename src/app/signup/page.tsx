@@ -74,7 +74,7 @@ function SignupForm() {
     });
 
     if (error) {
-      setSubmitError(translateSignupError(error.message));
+      setSubmitError(`[디버그] ${error.message}`);
       setLoading(false);
       return;
     }
