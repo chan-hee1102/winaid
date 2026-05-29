@@ -64,7 +64,7 @@ export default function ContentGeneratorPage() {
       <div className="mb-8">
         <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">AI 마케팅 콘텐츠 생성기</h1>
         <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">
-          진료과와 키워드를 선택하면 Claude AI가 마케팅 문구 3가지 변형을 생성합니다.
+          진료과와 키워드를 선택하면 AI가 마케팅 문구 3가지 변형을 생성합니다.
         </p>
       </div>
 

@@ -81,7 +81,7 @@ export default function FaqGeneratorPage() {
       <div className="mb-8">
         <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white">AI 환자 FAQ 생성기</h1>
         <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">
-          자주 묻는 질문을 입력하면 Claude AI가 병원 브랜드에 맞는 전문적인 답변을 생성합니다.
+          자주 묻는 질문을 입력하면 AI가 병원 브랜드에 맞는 전문적인 답변을 생성합니다.
         </p>
       </div>
 

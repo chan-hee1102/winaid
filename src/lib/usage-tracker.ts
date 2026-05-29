@@ -1,8 +1,9 @@
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import type { TierStatus } from '@/lib/tier-server';
 
+// TODO: free 한도는 베타 기간 테스트 편의를 위해 9999로 풀어놓음. 정식 출시 전 5로 복원.
 const DAILY_LIMITS: Record<TierStatus, number> = {
-  free:       5,
+  free:       9999,
   trial:      20,
   pro:        50,
   pro_annual: 50,

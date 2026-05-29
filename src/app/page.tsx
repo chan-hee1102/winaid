@@ -4,7 +4,7 @@ const FEATURES = [
   {
     icon: '⭐',
     title: 'AI 리뷰 답변 생성기',
-    desc: '네이버·카카오·구글 지도 환자 리뷰를 붙여넣으면 Claude AI가 의료광고법 준수 답변을 3초 안에 생성합니다.',
+    desc: '네이버·카카오·구글 지도 환자 리뷰를 붙여넣으면 AI가 의료광고법 준수 답변을 3초 안에 생성합니다.',
     href: '/tools/review-reply',
   },
   {
@@ -64,7 +64,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-4 pt-24 pb-16 text-center">
         <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full px-4 py-1.5 text-xs font-semibold text-indigo-300 mb-8">
-          Claude AI 기반 · 의료광고법 준수 · 한국어 특화
+          AI 기반 · 의료광고법 준수 · 한국어 특화
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
           병원 마케팅,{' '}
@@ -136,7 +136,7 @@ export default function HomePage() {
           <h2 className="text-2xl md:text-3xl font-extrabold mb-8 text-center">왜 MediAI인가?</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { title: '의료광고법 내장', desc: 'Claude AI 시스템 프롬프트에 효과 보장·비교 광고 등 금지 항목을 내장해 법적 리스크를 줄입니다.' },
+              { title: '의료광고법 내장', desc: 'AI 시스템 프롬프트에 효과 보장·비교 광고 등 금지 항목을 내장해 법적 리스크를 줄입니다.' },
               { title: '한국 의료 도메인 특화', desc: '네이버 지도, 카카오 지도, 한국 환자 커뮤니케이션 스타일에 최적화된 출력을 제공합니다.' },
               { title: '실시간 스트리밍', desc: '생성 결과를 기다리지 않고 실시간으로 텍스트가 완성되는 것을 볼 수 있습니다.' },
               { title: '즉시 복사·다운로드', desc: '생성된 콘텐츠를 원클릭으로 복사하거나 텍스트 파일로 저장할 수 있습니다.' },
