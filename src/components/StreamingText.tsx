@@ -59,13 +59,14 @@ export function useStreamingText(placeholder = ''): StreamingTextHandle & { comp
           if (!line.startsWith('data: ')) continue;
           const data = line.slice(6);
           if (data === '[DONE]') { setStatus('done'); return; }
+          let parsed: { text?: string; error?: string };
           try {
-            const parsed = JSON.parse(data);
-            if (parsed.error) throw new Error(parsed.error);
-            if (parsed.text) setText(prev => prev + parsed.text);
+            parsed = JSON.parse(data);
           } catch {
-            // ignore parse errors for non-JSON lines
+            continue;
           }
+          if (parsed.error) throw new Error(parsed.error);
+          if (parsed.text) setText(prev => prev + parsed.text);
         }
       }
 
