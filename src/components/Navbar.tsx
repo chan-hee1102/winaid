@@ -11,6 +11,7 @@ const NAV_TOOLS = [
   { href: '/tools/review-reply', label: '리뷰 답변' },
   { href: '/tools/content-generator', label: '콘텐츠 생성' },
   { href: '/tools/faq-generator', label: 'FAQ 생성' },
+  { href: '/tools/ad-law-checker', label: '의료광고법 검사' },
 ];
 
 export default function Navbar() {

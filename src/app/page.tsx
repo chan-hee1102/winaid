@@ -19,11 +19,17 @@ const FEATURES = [
     desc: '자주 묻는 질문 목록을 입력하면 병원 브랜드에 맞는 전문적인 FAQ 답변을 자동으로 완성하고 다운로드할 수 있습니다.',
     href: '/tools/faq-generator',
   },
+  {
+    icon: '⚖️',
+    title: 'AI 의료광고법 검사기',
+    desc: '작성한 광고 문구를 의료법 제56조 기준으로 자동 검토하여 위반 항목·사유·안전한 대체 표현까지 제안합니다.',
+    href: '/tools/ad-law-checker',
+  },
 ];
 
 const STATS = [
   { label: '병원·의원 적합', value: '300+', sub: '잠재 고객' },
-  { label: 'AI 도구', value: '3가지', sub: '핵심 기능' },
+  { label: 'AI 도구', value: '4가지', sub: '핵심 기능' },
   { label: '무료 체험', value: '14일', sub: '카드 없이' },
   { label: '답변 생성', value: '3초', sub: '이내' },
 ];
@@ -111,8 +117,8 @@ export default function HomePage() {
           병원 마케팅의 모든 반복 업무를 AI로
         </h2>
         <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
-          하루에도 수십 번 반복되는 리뷰 답변, 콘텐츠 작성, FAQ 정리를
-          이제 클릭 하나로 해결하세요.
+          하루에도 수십 번 반복되는 리뷰 답변, 콘텐츠 작성, FAQ 정리,
+          그리고 의료광고법 검토까지 이제 클릭 하나로 해결하세요.
         </p>
         <div className="grid md:grid-cols-3 gap-6">
           {FEATURES.map(f => (

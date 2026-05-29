@@ -11,7 +11,7 @@ const DAILY_LIMITS: Record<TierStatus, number> = {
   expired:    0,
 };
 
-export type UsageFeature = 'review_reply' | 'content_generator' | 'faq_generator';
+export type UsageFeature = 'review_reply' | 'content_generator' | 'faq_generator' | 'ad_law_check';
 
 export interface UsageResult {
   allowed: boolean;
