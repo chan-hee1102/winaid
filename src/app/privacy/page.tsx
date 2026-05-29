@@ -2,8 +2,8 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: '개인정보처리방침 | KOSTOCK Pro',
-  description: 'KOSTOCK Pro 개인정보처리방침',
+  title: '개인정보처리방침 | MediAI',
+  description: 'MediAI 개인정보처리방침',
 };
 
 const toc = [
@@ -28,11 +28,11 @@ export default function PrivacyPage() {
       <div className="bg-slate-900 text-white px-6 py-10">
         <div className="max-w-3xl mx-auto">
           <Link href="/" className="text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
-            ← KOSTOCK Pro
+            ← MediAI
           </Link>
           <h1 className="text-3xl font-extrabold tracking-tighter mt-3">개인정보처리방침</h1>
           <p className="text-slate-400 text-sm mt-2">
-            주식회사 팀에이아이팜 · 시행일: 2026년 3월 30일
+            주식회사 팀에이아이팜 · 시행일: 2026년 5월 29일
           </p>
         </div>
       </div>
@@ -41,9 +41,18 @@ export default function PrivacyPage() {
 
         {/* 개요 */}
         <div className="bg-indigo-50 border border-indigo-100 rounded-2xl px-6 py-5 mb-8 text-sm text-indigo-800 leading-relaxed">
-          주식회사 팀에이아이팜(이하 "회사")은 이용자의 개인정보를 중요시하며,
+          주식회사 팀에이아이팜(이하 &quot;회사&quot;)은 이용자의 개인정보를 중요시하며,
           「개인정보 보호법」 및 관련 법령을 준수합니다. 본 방침은 회사가 운영하는
-          KOSTOCK Pro 서비스에 적용됩니다.
+          MediAI(병원 AI 마케팅 어시스턴트) 서비스에 적용됩니다.
+        </div>
+
+        {/* 환자 정보 입력 금지 안내 */}
+        <div className="bg-red-50 border border-red-200 rounded-2xl px-6 py-5 mb-8 text-sm text-red-700 leading-relaxed">
+          <p className="font-bold mb-1">⚠ 환자 개인정보·진료기록 입력 금지</p>
+          <p className="text-xs">
+            MediAI는 마케팅 콘텐츠 생성 도구이며, 환자의 이름·연락처·진료기록 등 민감정보의 처리를 목적으로 하지 않습니다.
+            리뷰 답변 생성 시 환자가 작성한 리뷰 원문 외에 추가적인 개인정보를 입력하지 마시기 바랍니다.
+          </p>
         </div>
 
         {/* 목차 */}
@@ -79,13 +88,13 @@ export default function PrivacyPage() {
                 <tbody className="divide-y divide-slate-50">
                   <tr>
                     <td className="px-4 py-3 font-semibold text-slate-700">필수</td>
-                    <td className="px-4 py-3 text-slate-600">이메일 주소, 비밀번호(암호화), 이름, 생년월일</td>
+                    <td className="px-4 py-3 text-slate-600">이메일 주소, 비밀번호(암호화)</td>
                     <td className="px-4 py-3 text-slate-500">회원가입 시 직접 입력</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-semibold text-slate-700">소셜 로그인</td>
-                    <td className="px-4 py-3 text-slate-600">이메일 주소 (Google 계정에서 제공)</td>
-                    <td className="px-4 py-3 text-slate-500">Google OAuth 인증 시</td>
+                    <td className="px-4 py-3 font-semibold text-slate-700">선택</td>
+                    <td className="px-4 py-3 text-slate-600">병원명, 진료과 (콘텐츠 품질 향상 목적)</td>
+                    <td className="px-4 py-3 text-slate-500">서비스 이용 시 직접 입력</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-semibold text-slate-700">자동 수집</td>
@@ -97,6 +106,11 @@ export default function PrivacyPage() {
                     <td className="px-4 py-3 text-slate-600">결제 수단 정보 (카드 번호 등은 PG사에서 직접 수집)</td>
                     <td className="px-4 py-3 text-slate-500">유료 구독 결제 시</td>
                   </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-slate-700">생성 입력</td>
+                    <td className="px-4 py-3 text-slate-600">이용자가 입력한 리뷰 원문·키워드 등 콘텐츠 생성용 텍스트</td>
+                    <td className="px-4 py-3 text-slate-500">서비스 이용 시 직접 입력</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -106,9 +120,9 @@ export default function PrivacyPage() {
             <div className="space-y-3">
               {[
                 { label: '회원 관리', desc: '회원 식별, 본인 확인, 부정 이용 방지' },
-                { label: '서비스 제공', desc: '콘텐츠 제공, 맞춤 서비스 운영' },
+                { label: '서비스 제공', desc: 'AI 콘텐츠 생성, 사용량 관리, 맞춤 서비스 운영' },
                 { label: '유료 서비스', desc: '구독 결제, 청구, 환불 처리' },
-                { label: '서비스 개선', desc: '이용 통계 분석, 신규 기능 개발' },
+                { label: '서비스 개선', desc: '이용 통계 분석, 신규 기능 개발 (식별 불가 처리 후 사용)' },
                 { label: '법령 의무', desc: '전자상거래법 등 관계 법령 준수' },
                 { label: '고객 지원', desc: '문의 응대, 불만 처리, 공지사항 전달' },
               ].map(({ label, desc }) => (
@@ -192,21 +206,26 @@ export default function PrivacyPage() {
                     <td className="px-4 py-3 text-slate-500">회원 탈퇴 시까지</td>
                   </tr>
                   <tr>
+                    <td className="px-4 py-3 text-slate-700 font-medium">Vercel Inc.</td>
+                    <td className="px-4 py-3 text-slate-600">웹 호스팅 및 서버리스 인프라</td>
+                    <td className="px-4 py-3 text-slate-500">서비스 종료 시까지</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-slate-700 font-medium">Google LLC</td>
+                    <td className="px-4 py-3 text-slate-600">Gemini API를 통한 AI 콘텐츠 생성 처리</td>
+                    <td className="px-4 py-3 text-slate-500">요청 처리 후 즉시 (Google 정책)</td>
+                  </tr>
+                  <tr>
                     <td className="px-4 py-3 text-slate-700 font-medium">(주)코리아포트원</td>
                     <td className="px-4 py-3 text-slate-600">결제 처리 및 결제 데이터 관리</td>
                     <td className="px-4 py-3 text-slate-500">서비스 이용계약 종료 시까지</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 text-slate-700 font-medium">Railway (Render Inc.)</td>
-                    <td className="px-4 py-3 text-slate-600">서버 인프라 운영</td>
-                    <td className="px-4 py-3 text-slate-500">서비스 종료 시까지</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div className="bg-slate-50 border border-slate-100 rounded-xl px-5 py-4 text-xs text-slate-600">
               <p className="font-bold text-slate-700 mb-1.5">📌 개인정보 국외 이전 고지</p>
-              <p>위탁업체 중 <strong>Supabase Inc.</strong> 및 <strong>Railway (Render Inc.)</strong>는 미국에 서버를 두고 있어 개인정보가 국외로 이전될 수 있습니다. 이전되는 항목·국가·일시·방법은 위탁 계약을 통해 보호되며, 이용자는 서비스 가입 시 이에 동의한 것으로 간주합니다.</p>
+              <p>위탁업체 중 <strong>Supabase Inc.</strong>, <strong>Vercel Inc.</strong>, <strong>Google LLC</strong>는 미국에 서버를 두고 있어 개인정보 및 이용자 입력 텍스트가 국외로 이전될 수 있습니다. 이전되는 항목·국가·일시·방법은 위탁 계약 및 각 사 정책을 통해 보호되며, 이용자는 서비스 가입 시 이에 동의한 것으로 간주합니다.</p>
             </div>
           </Section>
 
@@ -292,7 +311,7 @@ export default function PrivacyPage() {
           {/* 부칙 */}
           <div className="px-8 py-6">
             <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.15em] mb-3">부칙</h3>
-            <p className="text-sm text-slate-600">이 방침은 <strong>2026년 3월 30일</strong>부터 시행합니다.</p>
+            <p className="text-sm text-slate-600">이 방침은 <strong>2026년 5월 29일</strong>부터 시행합니다.</p>
           </div>
 
         </div>

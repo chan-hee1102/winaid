@@ -70,7 +70,7 @@ export default function ContactPage() {
         {/* 헤더 */}
         <div className="mb-8">
           <Link href="/" className="text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors">
-            ← KOSTOCK Pro
+            ← MediAI
           </Link>
           <h1 className="text-2xl font-extrabold tracking-tighter text-slate-900 dark:text-gray-100 mt-4">문의하기</h1>
           <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">궁금한 점이나 불편한 사항을 알려주세요.</p>

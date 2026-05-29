@@ -15,7 +15,7 @@ export default function ForgotPasswordPage() {
     setLoading(true);
     setError('');
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: 'https://kostock-production.up.railway.app/reset-password',
+      redirectTo: `${window.location.origin}/reset-password`,
     });
     if (error) {
       setError('메일 발송에 실패했습니다. 이메일 주소를 확인해 주세요.');
@@ -55,7 +55,7 @@ export default function ForgotPasswordPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-extrabold tracking-tighter text-slate-900">
-            KOSTOCK <span className="text-indigo-600">Pro</span>
+            Medi<span className="text-indigo-600">AI</span>
           </h1>
           <p className="text-slate-500 text-sm mt-2 font-medium">비밀번호 찾기</p>
         </div>

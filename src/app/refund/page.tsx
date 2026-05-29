@@ -2,8 +2,8 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: '환불정책 | KOSTOCK Pro',
-  description: 'KOSTOCK Pro 환불 및 구독 취소 정책',
+  title: '환불정책 | MediAI',
+  description: 'MediAI 환불 및 구독 취소 정책',
 };
 
 const toc = [
@@ -24,11 +24,11 @@ export default function RefundPage() {
       <div className="bg-slate-900 dark:bg-gray-900 text-white px-6 py-10">
         <div className="max-w-3xl mx-auto">
           <Link href="/" className="text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
-            ← KOSTOCK Pro
+            ← MediAI
           </Link>
           <h1 className="text-3xl font-extrabold tracking-tighter mt-3">환불정책</h1>
           <p className="text-slate-400 text-sm mt-2">
-            주식회사 팀에이아이팜 · 시행일: 2026년 4월 26일
+            주식회사 팀에이아이팜 · 시행일: 2026년 5월 29일
           </p>
         </div>
       </div>
@@ -55,29 +55,32 @@ export default function RefundPage() {
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-slate-200 dark:border-gray-700 shadow-sm divide-y divide-slate-50 dark:divide-gray-800">
 
           <Section id="art1" title="제1조 (환불 원칙)">
-            <p>주식회사 팀에이아이팜(이하 "회사")은 전자상거래 등에서의 소비자보호에 관한 법률 및 관련 법령에 따라 KOSTOCK Pro(이하 "서비스") 이용자의 청약철회 및 환불 권리를 보장합니다.</p>
+            <p>주식회사 팀에이아이팜(이하 &quot;회사&quot;)은 전자상거래 등에서의 소비자보호에 관한 법률 및 관련 법령에 따라 MediAI(이하 &quot;서비스&quot;) 이용자의 청약철회 및 환불 권리를 보장합니다.</p>
             <p className="mt-3">환불은 아래 각 조에서 정한 기준에 따라 처리되며, 이용자는 환불 요청 전 해당 조건을 확인하시기 바랍니다.</p>
           </Section>
 
           <Section id="art2" title="제2조 (전액 환불 조건)">
             <Callout color="indigo" icon="✅">
               <p className="font-bold text-indigo-800 dark:text-indigo-300 text-xs mb-1">전액 환불 가능</p>
-              <p className="text-indigo-700 dark:text-indigo-400 text-xs">유료 구독 결제일로부터 <strong>24시간 이내</strong>에 환불을 요청하시면 전액 환불이 가능합니다.</p>
+              <p className="text-indigo-700 dark:text-indigo-400 text-xs">유료 구독 결제일로부터 <strong>24시간 이내</strong>이면서 <strong>AI 생성 기능을 사용하지 않은 경우</strong> 전액 환불이 가능합니다.</p>
             </Callout>
             <ul className="mt-4 space-y-2 list-disc list-inside text-slate-600 dark:text-gray-400">
-              <li>결제일로부터 24시간 이내에 환불 요청한 경우</li>
-              <li>전액 환불되며 별도의 위약금이 발생하지 않습니다.</li>
+              <li>결제일로부터 24시간 이내 환불 요청한 경우</li>
+              <li>유료 구독 결제 후 AI 콘텐츠 생성 기능(리뷰 답변·콘텐츠·FAQ)을 1회도 사용하지 않은 경우</li>
+              <li>위 조건 충족 시 전액 환불되며 별도의 위약금이 발생하지 않습니다.</li>
             </ul>
           </Section>
 
           <Section id="art3" title="제3조 (환불 불가 조건)">
             <Callout color="amber" icon="⚠">
               <p className="font-bold text-amber-800 dark:text-amber-300 text-xs mb-1">환불이 제한되는 경우</p>
-              <p className="text-amber-700 dark:text-amber-400 text-xs">결제 후 <strong>24시간이 경과</strong>한 경우 디지털 콘텐츠의 특성상 환불이 불가합니다.</p>
+              <p className="text-amber-700 dark:text-amber-400 text-xs">디지털 콘텐츠 서비스의 특성상 아래 경우 환불이 제한됩니다.</p>
             </Callout>
             <ul className="mt-4 space-y-2 list-disc list-inside text-slate-600 dark:text-gray-400">
               <li>결제일로부터 24시간이 경과한 경우</li>
+              <li>유료 구독 결제 후 AI 콘텐츠 생성 기능을 1회 이상 사용한 경우</li>
               <li>구독 기간이 만료된 이후 환불을 요청하는 경우</li>
+              <li>이용자의 약관 위반으로 회원 자격이 정지된 경우</li>
             </ul>
             <p className="mt-4 text-xs text-slate-500 dark:text-gray-500">
               본 환불 제한은 「전자상거래 등에서의 소비자보호에 관한 법률」 제17조 제2항 제5호에 따른 디지털 콘텐츠 특성에 근거합니다.
@@ -91,9 +94,9 @@ export default function RefundPage() {
             </Callout>
             <ul className="mt-4 space-y-2 list-disc list-inside text-slate-600 dark:text-gray-400">
               <li>구독 취소는 마이페이지에서 언제든지 가능합니다.</li>
-              <li>취소 시 <strong>당월 말까지 서비스가 유지</strong>됩니다.</li>
+              <li>취소 시 <strong>이미 결제된 구독 기간 만료일까지 서비스가 유지</strong>됩니다.</li>
               <li>취소 이후 다음 결제일부터 요금이 청구되지 않습니다.</li>
-              <li>취소 시 즉시 서비스가 종료되지 않으며, 이미 결제된 구독 기간은 끝까지 이용하실 수 있습니다.</li>
+              <li>취소 시점에 즉시 서비스가 종료되지 않으며, 결제된 기간은 끝까지 이용하실 수 있습니다.</li>
             </ul>
           </Section>
 
@@ -103,10 +106,10 @@ export default function RefundPage() {
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-slate-500 dark:text-gray-400 w-20 shrink-0">환불 문의</span>
                 <a
-                  href="mailto:service@taif.kr"
+                  href="mailto:mukkeby99@gmail.com"
                   className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
                 >
-                  service@taif.kr
+                  mukkeby99@gmail.com
                 </a>
               </div>
               <div className="flex items-start gap-3">
@@ -128,7 +131,7 @@ export default function RefundPage() {
           {/* 부칙 */}
           <div className="px-8 py-6">
             <h3 className="text-xs font-black text-slate-400 dark:text-gray-500 uppercase tracking-[0.15em] mb-3">부칙</h3>
-            <p className="text-sm text-slate-600 dark:text-gray-400">이 환불정책은 <strong>2026년 4월 26일</strong>부터 시행합니다.</p>
+            <p className="text-sm text-slate-600 dark:text-gray-400">이 환불정책은 <strong>2026년 5월 29일</strong>부터 시행합니다.</p>
           </div>
 
         </div>

@@ -2,15 +2,15 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: '이용약관 | KOSTOCK Pro',
-  description: 'KOSTOCK Pro 서비스 이용약관',
+  title: '이용약관 | MediAI',
+  description: 'MediAI 서비스 이용약관',
 };
 
 const toc = [
   { id: 'art1',  label: '제1조 목적' },
   { id: 'art2',  label: '제2조 용어 정의' },
   { id: 'art3',  label: '제3조 약관의 효력 및 변경' },
-  { id: 'art4',  label: '제4조 투자 유의사항' },
+  { id: 'art4',  label: '제4조 서비스 성격 및 의료광고법 준수 의무' },
   { id: 'art5',  label: '제5조 이용 자격' },
   { id: 'art6',  label: '제6조 서비스 내용' },
   { id: 'art7',  label: '제7조 유료 구독 및 결제' },
@@ -31,11 +31,11 @@ export default function TermsPage() {
       <div className="bg-slate-900 text-white px-6 py-10">
         <div className="max-w-3xl mx-auto">
           <Link href="/" className="text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
-            ← KOSTOCK Pro
+            ← MediAI
           </Link>
           <h1 className="text-3xl font-extrabold tracking-tighter mt-3">이용약관</h1>
           <p className="text-slate-400 text-sm mt-2">
-            주식회사 팀에이아이팜 · 시행일: 2026년 3월 30일
+            주식회사 팀에이아이팜 · 시행일: 2026년 5월 29일
           </p>
         </div>
       </div>
@@ -62,27 +62,31 @@ export default function TermsPage() {
         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm divide-y divide-slate-50">
 
           <Section id="art1" title="제1조 (목적)">
-            <p>이 약관은 주식회사 팀에이아이팜(이하 "회사")이 운영하는 KOSTOCK Pro(이하 "서비스")의 이용 조건 및 절차, 이용자와 회사 간의 권리·의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
+            <p>이 약관은 주식회사 팀에이아이팜(이하 &quot;회사&quot;)이 운영하는 MediAI(이하 &quot;서비스&quot;)의 이용 조건 및 절차, 이용자와 회사 간의 권리·의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
           </Section>
 
           <Section id="art2" title="제2조 (용어 정의)">
             <p>이 약관에서 사용하는 용어의 정의는 다음과 같습니다.</p>
             <dl className="mt-3 space-y-2">
               <div className="flex gap-3">
-                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">① "서비스"</dt>
-                <dd className="text-slate-600 text-xs">회사가 운영하는 KOSTOCK Pro 및 이와 관련된 일체의 서비스를 말합니다.</dd>
+                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">① &quot;서비스&quot;</dt>
+                <dd className="text-slate-600 text-xs">회사가 운영하는 MediAI(병원 AI 마케팅 어시스턴트) 및 이와 관련된 일체의 서비스를 말합니다.</dd>
               </div>
               <div className="flex gap-3">
-                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">② "이용자"</dt>
-                <dd className="text-slate-600 text-xs">이 약관에 동의하고 서비스를 이용하는 회원 및 비회원을 말합니다.</dd>
+                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">② &quot;이용자&quot;</dt>
+                <dd className="text-slate-600 text-xs">이 약관에 동의하고 서비스를 이용하는 의료기관 종사자 및 마케팅 담당자를 말합니다.</dd>
               </div>
               <div className="flex gap-3">
-                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">③ "회원"</dt>
+                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">③ &quot;회원&quot;</dt>
                 <dd className="text-slate-600 text-xs">서비스에 회원가입하여 이용자 아이디(ID)를 부여받은 자를 말합니다.</dd>
               </div>
               <div className="flex gap-3">
-                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">④ "유료 서비스"</dt>
-                <dd className="text-slate-600 text-xs">회사가 유료로 제공하는 구독형 서비스(Pro, Pro 연간)를 말합니다.</dd>
+                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">④ &quot;유료 서비스&quot;</dt>
+                <dd className="text-slate-600 text-xs">회사가 유료로 제공하는 구독형 서비스(Pro, Pro 연간, Max 등)를 말합니다.</dd>
+              </div>
+              <div className="flex gap-3">
+                <dt className="shrink-0 text-xs font-bold text-slate-700 w-20">⑤ &quot;생성 콘텐츠&quot;</dt>
+                <dd className="text-slate-600 text-xs">이용자의 입력을 바탕으로 서비스가 인공지능을 통해 생성한 텍스트 결과물(리뷰 답변, SNS 게시물, FAQ 등)을 말합니다.</dd>
               </div>
             </dl>
           </Section>
@@ -96,16 +100,16 @@ export default function TermsPage() {
             </ol>
           </Section>
 
-          <Section id="art4" title="제4조 (서비스 성격 및 투자 유의사항)">
+          <Section id="art4" title="제4조 (서비스 성격 및 의료광고법 준수 의무)">
             <Callout color="amber" icon="⚠">
-              <p className="font-bold text-amber-800 text-xs mb-1">유사투자자문업 신고 서비스</p>
-              <p className="text-amber-700 text-xs">본 서비스는 자본시장과 금융투자업에 관한 법률 제101조에 따른 <strong>유사투자자문업자</strong>로 신고된 서비스입니다.</p>
+              <p className="font-bold text-amber-800 text-xs mb-1">마케팅 보조 도구로서의 한계</p>
+              <p className="text-amber-700 text-xs">본 서비스는 의료기관의 마케팅 콘텐츠 작성을 보조하는 AI 도구이며, 의료행위·의학 자문을 제공하지 않습니다.</p>
             </Callout>
             <ul className="mt-4 space-y-2 list-disc list-inside text-slate-600">
-              <li>서비스가 제공하는 모든 정보는 <strong>투자 참고용</strong>이며, 특정 종목의 매수·매도를 권유하지 않습니다.</li>
-              <li>AI 분석 결과는 정확성을 보장하지 않으며, 실제 투자 결과와 다를 수 있습니다.</li>
-              <li>투자로 인한 손실 책임은 전적으로 이용자 본인에게 있으며, 회사는 어떠한 손해에 대해서도 책임을 지지 않습니다.</li>
-              <li>서비스 내 데이터는 실시간 전송 지연이 있을 수 있으며, 투자 판단의 유일한 근거로 활용해서는 안 됩니다.</li>
+              <li>이용자는 생성 콘텐츠를 외부 매체에 게시하기 전 의료법 제56조 및 관련 고시(의료광고 금지표현 등)에 위배되지 않는지 직접 검토할 의무가 있습니다.</li>
+              <li>의료법상 사전심의 대상에 해당하는 광고는 의료광고심의위원회의 심의를 별도로 받아야 하며, 회사는 사전심의를 대행하거나 통과를 보장하지 않습니다.</li>
+              <li>AI 특성상 사실관계 오류 또는 부적절한 표현이 포함될 수 있으며, 이용자는 게시 전 사실 확인을 거쳐야 합니다.</li>
+              <li>생성 콘텐츠의 게시로 발생한 행정처분·민형사상 책임은 게시 주체인 이용자에게 귀속됩니다.</li>
             </ul>
           </Section>
 
@@ -116,18 +120,19 @@ export default function TermsPage() {
               <li>이 약관 및 개인정보처리방침에 동의한 자</li>
               <li>회사로부터 이용이 제한·정지된 이력이 없는 자</li>
             </ul>
-            <p className="mt-3 text-xs text-slate-500">만 14세 미만은 법정대리인의 동의가 필요하며, 회사는 법정대리인 동의 없이 가입된 사실을 확인할 경우 해당 계정을 삭제할 수 있습니다.</p>
+            <p className="mt-3 text-xs text-slate-500">서비스의 주요 이용 대상은 국내 의료기관 종사자 및 의료기관의 위임을 받은 마케팅 담당자입니다.</p>
           </Section>
 
           <Section id="art6" title="제6조 (서비스 내용)">
             <p>회사는 다음 기능을 제공합니다.</p>
             <ul className="mt-2 space-y-1 list-disc list-inside text-slate-600">
-              <li>한국 주식 시장(KOSPI·KOSDAQ) 거래대금 상위 종목 실시간 조회</li>
-              <li>AI 기반 상승·하락 종목 테마·섹터 분석</li>
-              <li>글로벌 주요 ETF 동향 정보</li>
-              <li>유료 회원 대상 실시간 SSE 업데이트 및 테마별 그룹핑</li>
+              <li>환자 리뷰에 대한 병원 공식 답변 AI 생성 (네이버·카카오·구글 지도)</li>
+              <li>진료과별 마케팅 콘텐츠 AI 생성 (인스타그램, 네이버 블로그 제목, 카카오채널 메시지)</li>
+              <li>환자 FAQ 답변 AI 생성</li>
+              <li>의료광고법 금지표현 자동 회피를 위한 프롬프트 적용</li>
+              <li>유료 회원 대상 일일 사용량 확대 및 우선 처리</li>
             </ul>
-            <p className="mt-3 text-xs text-slate-500">무료 회원과 유료 회원의 서비스 범위는 <Link href="/pricing" className="text-indigo-600 hover:underline">요금 안내 페이지</Link>에서 확인하실 수 있습니다.</p>
+            <p className="mt-3 text-xs text-slate-500">무료 회원과 유료 회원의 일일 사용 한도 및 기능 차이는 <Link href="/pricing" className="text-indigo-600 hover:underline">요금 안내 페이지</Link>에서 확인하실 수 있습니다.</p>
           </Section>
 
           <Section id="art7" title="제7조 (유료 구독 및 결제)">
@@ -145,6 +150,7 @@ export default function TermsPage() {
               <li>구독 기간 중 해지 시 <strong>미사용 기간에 대해 일할 계산</strong>하여 환불합니다.</li>
               <li>환불 신청은 고객센터 이메일(<strong>mukkeby99@gmail.com</strong>)을 통해 접수하며, 처리 기간은 영업일 기준 <strong>3~5일</strong>입니다.</li>
               <li>환불은 결제 수단에 따라 카드사 환불 등의 방법으로 처리됩니다.</li>
+              <li>상세 환불 정책은 <Link href="/refund" className="text-indigo-600 hover:underline">환불정책 페이지</Link>를 참고하시기 바랍니다.</li>
             </ol>
           </Section>
 
@@ -152,7 +158,7 @@ export default function TermsPage() {
             <ol className="space-y-2 list-decimal list-inside text-slate-600">
               <li>회사는 운영상·기술상 필요에 따라 서비스 내용을 변경하거나 중단할 수 있습니다.</li>
               <li>서비스 변경·중단 시 서비스 공지사항 또는 이메일을 통해 <strong>7일 전</strong> 사전 고지합니다.</li>
-              <li>긴급 보안 패치, 천재지변, 국가 비상사태 등 불가피한 사유 발생 시에는 사전 고지 없이 서비스를 중단할 수 있으며, 이 경우 중단 후 즉시 고지합니다.</li>
+              <li>긴급 보안 패치, 천재지변, 외부 AI 서비스(Google Gemini API 등) 장애 등 불가피한 사유 발생 시에는 사전 고지 없이 서비스를 중단할 수 있으며, 이 경우 중단 후 즉시 고지합니다.</li>
               <li>유료 서비스 기간 중 회사의 귀책 사유로 서비스가 중단된 경우, 중단 기간에 해당하는 이용 요금을 환불합니다.</li>
             </ol>
           </Section>
@@ -160,10 +166,11 @@ export default function TermsPage() {
           <Section id="art10" title="제10조 (이용자 의무)">
             <p>이용자는 다음 행위를 하여서는 안 됩니다.</p>
             <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
-              <li>서비스 정보를 무단으로 복제·배포·상업적으로 이용하는 행위</li>
+              <li>생성 콘텐츠를 검토 없이 그대로 게시하여 의료법·의료광고법을 위반하는 행위</li>
+              <li>서비스에 환자의 개인정보·진료기록 등 민감정보를 입력하는 행위</li>
               <li>타인의 계정을 도용하거나 허위 정보로 가입하는 행위</li>
-              <li>서비스의 안정적 운영을 방해하거나 서버에 과도한 부하를 주는 행위</li>
-              <li>서비스를 통해 얻은 정보를 이용하여 제3자에게 유료로 재판매하는 행위</li>
+              <li>서비스의 안정적 운영을 방해하거나 서버에 과도한 부하를 주는 행위(자동화 스크립트를 통한 대량 요청 등)</li>
+              <li>서비스를 통해 얻은 결과를 제3자에게 유료로 재판매하는 행위</li>
               <li>관련 법령, 약관, 서비스 정책을 위반하는 행위</li>
             </ul>
             <p className="mt-3 text-xs text-slate-500">위 행위가 확인된 경우 회사는 사전 통보 없이 서비스 이용을 제한하거나 계정을 해지할 수 있습니다.</p>
@@ -171,18 +178,19 @@ export default function TermsPage() {
 
           <Section id="art11" title="제11조 (지식재산권)">
             <ol className="space-y-2 list-decimal list-inside text-slate-600">
-              <li>서비스 내 회사가 작성한 콘텐츠(AI 분석 결과, UI, 디자인, 텍스트 등)에 대한 저작권 및 지식재산권은 회사에 귀속됩니다.</li>
-              <li>이용자는 서비스에서 제공하는 정보를 개인적·비상업적 목적으로만 사용할 수 있으며, 회사의 사전 동의 없이 복제, 배포, 방송, 전송, 출판, 2차적저작물 작성 등에 이용할 수 없습니다.</li>
-              <li>이용자가 서비스를 이용하면서 게시한 콘텐츠에 대한 책임은 해당 이용자에게 있습니다.</li>
+              <li>서비스 자체(UI, 디자인, 코드, 프롬프트 등)에 대한 저작권 및 지식재산권은 회사에 귀속됩니다.</li>
+              <li>이용자의 입력을 바탕으로 생성된 콘텐츠의 사용·수정·게시 권한은 이용자에게 있습니다. 다만 이용자는 해당 콘텐츠를 의료광고법 등 관련 법령을 준수하여 사용해야 합니다.</li>
+              <li>회사는 서비스 품질 개선 및 통계 분석을 위해 이용자의 입력·결과 데이터를 식별이 불가능하도록 처리하여 활용할 수 있습니다.</li>
+              <li>이용자가 서비스에 입력한 내용에 대한 책임은 해당 이용자에게 있습니다.</li>
             </ol>
           </Section>
 
           <Section id="art12" title="제12조 (면책조항)">
             <ol className="space-y-2 list-decimal list-inside text-slate-600">
-              <li>회사는 천재지변, 전쟁, 인터넷 장애 등 불가항력으로 인한 서비스 중단에 대해 책임을 지지 않습니다.</li>
+              <li>회사는 천재지변, 전쟁, 인터넷 장애, 외부 AI 서비스(Google Gemini API 등) 장애 등 불가항력으로 인한 서비스 중단에 대해 책임을 지지 않습니다.</li>
               <li>이용자의 귀책사유로 발생한 손해에 대해 회사는 책임을 지지 않습니다.</li>
-              <li>서비스가 제공하는 투자 정보는 참고 자료이며, 이를 기반으로 한 투자 결과에 대해 회사는 책임을 지지 않습니다.</li>
-              <li>회사는 이용자 상호 간 또는 이용자와 제3자 간의 분쟁에 대해 개입할 의무가 없으며 이로 인한 손해에 대해 책임을 지지 않습니다.</li>
+              <li>이용자가 생성 콘텐츠를 게시함으로써 발생한 의료법·의료광고법 위반에 따른 행정처분, 명예훼손, 개인정보 노출 등의 법적 책임은 게시 주체인 이용자에게 귀속됩니다.</li>
+              <li>회사는 이용자 상호 간 또는 이용자와 제3자(환자·외부 광고 매체 등) 간의 분쟁에 대해 개입할 의무가 없으며 이로 인한 손해에 대해 책임을 지지 않습니다.</li>
             </ol>
           </Section>
 
@@ -197,7 +205,7 @@ export default function TermsPage() {
           {/* 부칙 */}
           <div className="px-8 py-6">
             <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.15em] mb-3">부칙</h3>
-            <p className="text-sm text-slate-600">이 약관은 <strong>2026년 3월 30일</strong>부터 시행합니다.</p>
+            <p className="text-sm text-slate-600">이 약관은 <strong>2026년 5월 29일</strong>부터 시행합니다.</p>
           </div>
 
         </div>

@@ -12,7 +12,7 @@ export default function Footer() {
               Medi<span className="text-indigo-400">AI</span>
             </p>
             <p className="text-xs">병원 AI 마케팅 어시스턴트</p>
-            <p className="text-xs">Claude AI 기반 · 의료광고법 준수</p>
+            <p className="text-xs">Gemini AI 기반 · 의료광고법 준수</p>
           </div>
           <div className="flex flex-col gap-2 sm:items-end sm:justify-start">
             <Link href="/terms" className="text-xs hover:text-white transition-colors">이용약관</Link>

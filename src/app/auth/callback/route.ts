@@ -7,14 +7,11 @@ export async function GET(request: NextRequest) {
   const type      = searchParams.get('type');
   const tokenHash = searchParams.get('token_hash');
 
-  // Railway는 내부적으로 localhost:8080으로 요청을 받으므로
-  // request.url의 origin이 localhost:8080이 됨.
-  // x-forwarded-host 헤더로 실제 공개 도메인을 사용.
   const forwardedHost  = request.headers.get('x-forwarded-host');
   const forwardedProto = request.headers.get('x-forwarded-proto') ?? 'https';
   const origin = forwardedHost
     ? `${forwardedProto}://${forwardedHost}`
-    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kostock-production.up.railway.app';
+    : process.env.NEXT_PUBLIC_SITE_URL ?? new URL(request.url).origin;
 
   // OAuth 오류 응답 (Google/Supabase에서 에러 반환)
   if (searchParams.get('error')) {

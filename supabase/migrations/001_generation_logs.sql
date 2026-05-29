@@ -1,6 +1,5 @@
 -- MediAI generation_logs 테이블
--- profiles 테이블은 kostock Supabase 프로젝트에 이미 존재함 (재사용)
--- 이 SQL만 Supabase 대시보드 SQL Editor에서 실행하면 됨
+-- Supabase 대시보드 SQL Editor에서 실행
 
 CREATE TABLE IF NOT EXISTS public.generation_logs (
   id            uuid        PRIMARY KEY DEFAULT gen_random_uuid(),

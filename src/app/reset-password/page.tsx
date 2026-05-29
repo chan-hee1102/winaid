@@ -89,7 +89,7 @@ function ResetPasswordForm() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-extrabold tracking-tighter text-slate-900">
-            KOSTOCK <span className="text-indigo-600">Pro</span>
+            Medi<span className="text-indigo-600">AI</span>
           </h1>
           <p className="text-slate-500 text-sm mt-2 font-medium">새 비밀번호 설정</p>
         </div>
